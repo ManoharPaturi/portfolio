@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-void: #03050B;
+  --color-obsidian: #070B14;
+  --color-panel: #0B101D;
+  --color-hairline: rgba(255, 255, 255, 0.09);
+  --color-ink: #F4F6FA;
+  --color-ink-muted: #9AA6BA;
+  --color-ink-subtle: #647187;
+  --color-champagne: #E8B86D;
+  --color-starlight: #7DD3FC;
+  --color-nebula: #E59876;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #03050b;
+    color: #f4f6fa;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle dark observatory scrollbars inside drawers */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(154, 166, 186, 0.22);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(232, 184, 109, 0.45);
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Crisp astronomical callout text legibility over luminous 3D scenes without heavy raster blur */
+.cosmos-callout-shadow {
+  text-shadow:
+    0 1px 4px rgba(3, 5, 11, 0.96),
+    0 0 8px rgba(3, 5, 11, 0.85);
+}
+
+.cosmos-marker-btn {
+  contain: layout style;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
